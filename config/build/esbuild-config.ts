@@ -3,6 +3,7 @@ import {BuildOptions} from "esbuild";
 import { CleanPlugin } from "./plugins/CleanPlugin";
 import { HTMLPlugin } from "./plugins/HTMLPlugin";
 import {livereloadPlugin} from '@jgoz/esbuild-plugin-livereload';
+import sassPlugin from 'esbuild-sass-plugin';
 
 const mode = process.env.MODE || 'development'
 const isDev = mode === "development"
@@ -29,6 +30,11 @@ const config:BuildOptions = {
         '.jpg':'file',
     },
     metafile:true, // ??
-    plugins:[livereloadPlugin(),CleanPlugin,HTMLPlugin({title:'Ulbi TV'})], // Какие-то доп. плагины, которые могут делать что то. Например очистить папку, что то скопировать из одной папки в другую и т.д.
+    plugins:[
+        sassPlugin(),
+        livereloadPlugin(),
+        CleanPlugin,
+        HTMLPlugin({title:'Ulbi TV'})
+    ], // Какие-то доп. плагины, которые могут делать что то. Например очистить папку, что то скопировать из одной папки в другую и т.д.
 }
 export default config

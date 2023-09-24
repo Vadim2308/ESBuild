@@ -1,5 +1,5 @@
 import React, {useId, useState} from 'react';
-import './index.css'
+import './second.module.scss'
 import logo from './logo.png'
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
         setState(p=> p + 1)
     }
     return (
-        <div>
+        <div className="container">
             <img width='150' height='150' src={logo} alt=''/>
             <h1>{state}-${id}-${id2}</h1>
             <button onClick={onBtnClick}>Click Me</button>
